@@ -2,10 +2,10 @@
 
 Specs:
 - [x] Use Sinatra to build the app
-- [ ] Use ActiveRecord for storing information in a database
-- [ ] Include more than one model class (e.g. User, Post, Category)
-- [ ] Include at least one has_many relationship on your User model (e.g. User has_many Posts)
-- [ ] Include at least one belongs_to relationship on another model (e.g. Post belongs_to User)
+- [x] Use ActiveRecord for storing information in a database
+- [x] Include more than one model class (e.g. User, Post, Category)
+- [x] Include at least one has_many relationship on your User model (e.g. User has_many Posts)
+- [x] Include at least one belongs_to relationship on another model (e.g. Post belongs_to User)
 - [ ] Include user accounts with unique login attribute (username or email)
 - [ ] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
 - [ ] Ensure that users can't modify content created by other users
@@ -18,3 +18,6 @@ Confirm
 - [ ] Your commit messages are meaningful
 - [ ] You made the changes in a commit that relate to the commit message
 - [ ] You don't include changes in a commit that aren't related to the commit message
+
+
+<!-- Make sure to check each box in your spec.md (replace the space between the square braces with an x) and explain next to each one how you've met the requirement before you submit your project. -->
