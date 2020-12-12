@@ -3,8 +3,7 @@ class CreateDoctors < ActiveRecord::Migration
     create_table :doctors do |t|
       t.string :name
       t.string :specialty
-      t.string :username
-      t.string :password_digest # Use password digest to use bcrypt
     end
+    # should be able to add and remove doctors as they are employed / if they leave the practice
   end
 end
