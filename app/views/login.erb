@@ -4,15 +4,15 @@
     <br>
 
     <div class="login">
-      <h2><center>Log into Health Information Systems</center></h2>
+      <h2><center>Log in to Health Information Systems</center></h2>
       <br>
       <center>
-        <form method="GET" action="/doctors"> 
+        <form method="POST" action="/login"> 
           <label>Username: </label>
-          <input type="text" name="username">
+          <input type="text" name="username" id="username">
           <br><br>
           <label>Password: </label>
-          <input type="text" name="password">
+          <input type="password" name="password" id="password">
           <br><br>
           <input type="submit" value="Log In">
         </form>
