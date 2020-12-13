@@ -2,7 +2,13 @@ class UsersController < ApplicationController
     # inherit from app controller so that you don't have to inherit from sinatra base, configure views, require environment, etc
     
     get '/login' do
-        erb :'users/login'
+        #if logged in, redirect to /users/:id
+        if logged_in? 
+            redirect to "/users/#{current_user.id}"
+        else 
+            #if not, render the login form
+            erb :'users/login'
+        end
     end
 
     post '/login' do
@@ -21,17 +27,23 @@ class UsersController < ApplicationController
     end
 
     get '/users/:id' do
-        binding.pry
-        "Hello, -user first name-!
-        Thank you message for covid with image
-        -link to /doctors-"
+        erb :'users/welcome'
     end
 
     get "/enroll" do
         erb :'users/enroll'
     end
 
-    post "/enroll" do
-        binding.pry
+    post "/users" do
+        @user = User.create(params)
+
+        session[:user_id] = @user.id
+
+        redirect to "/users/#{@user.id}"
+    end
+
+    get '/logout' do
+        session.clear #clears the entire session hash
+        redirect to '/'
     end
 end

@@ -14,7 +14,9 @@ class ApplicationController < Sinatra::Base
   end
 
   helpers do
-    # def logged_in?
+    def logged_in?
+      !!current_user 
+    end
     #keeps track of the user that is logged in
     def current_user
       User.find_by(id: session[:user_id])
