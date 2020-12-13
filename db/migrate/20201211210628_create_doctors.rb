@@ -3,6 +3,9 @@ class CreateDoctors < ActiveRecord::Migration
     create_table :doctors do |t|
       t.string :name
       t.string :specialty
+      t.string :clinic_days
+      t.string :clinic_location
+      t.string :on_call_days
     end
     # should be able to add and remove doctors as they are employed / if they leave the practice
   end

@@ -16,6 +16,9 @@ ActiveRecord::Schema.define(version: 20201212185626) do
   create_table "doctors", force: :cascade do |t|
     t.string "name"
     t.string "specialty"
+    t.string "clinic_days"
+    t.string "clinic_location"
+    t.string "on_call_days"
   end
 
   create_table "patients", force: :cascade do |t|
