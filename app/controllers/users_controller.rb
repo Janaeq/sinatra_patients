@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
     # inherit from app controller so that you don't have to inherit from sinatra base, configure views, require environment, etc
     
-    get '/login' do
+    get "/login" do
         #if logged in, redirect to /users/:id
         if logged_in? 
             redirect to "/users/#{current_user.id}"
@@ -11,7 +11,7 @@ class UsersController < ApplicationController
         end
     end
 
-    post '/login' do
+    post "/login" do
         # find the user, authenticate them, create a session, and redirect.
         # if user does not exist, send to error page?
         user = User.find_by(username: params[:username])
@@ -21,12 +21,13 @@ class UsersController < ApplicationController
             
             redirect "/users/#{user.id}" #needs to be double quotes in order to interpolate the user id
         else #if the user is not logged in redirect to the login page
-            redirect '/login'
+            redirect "/login"
         end
     end
 
-    get '/users/:id' do #dynamic route specific to the user that is logged in
-        @signed_in_user = User.find_by(params[:id])
+    get "/users/:id" do #dynamic route specific to the user that is logged in
+        @user = User.find_by(id: params[:id])
+        binding.pry
         erb :'users/welcome'
     end
 
@@ -36,15 +37,15 @@ class UsersController < ApplicationController
     end
 
     post "/users" do
-        #why create a class variable?
+        # create a class variable so that it works in your "/users/:id" route
         @user = User.create(params)
-        #same as the post /login route
+        #same as the post /login route to log in the new user
         session[:user_id] = @user.id
         redirect to "/users/#{@user.id}"
     end
 
-    get '/logout' do
+    get "/logout" do
         session.clear #clears the entire session hash, meaning the user is no longer logged in
-        redirect to '/'
+        redirect to "/"
     end
 end
