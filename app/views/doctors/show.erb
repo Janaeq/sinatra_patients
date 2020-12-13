@@ -1,3 +1,14 @@
 <h1><%=@doctor.name%></h1>
 <h2 style="border-bottom:solid;"><em><%=@doctor.specialty%></em></h2>
 
+<h2 style="border-bottom:none;">Clinic Information</h2>
+<h4>Clinic Location: <%=@doctor.clinic_location%></h4>
+<h4>Clinic Days: <%=@doctor.clinic_days%></h4>
+<br><br>
+<h2 style="border-bottom:none;">On-Call Information</h2>
+<h4><%=@doctor.on_call_days%></h4>
+<br><br><br>
+<a href="/doctors" style="color:black; float:left;">Back</a>
+<form method="GET" action="/logout">
+    <input style="color:black; float:right;" type="submit" value="Log Out">
+</form>
