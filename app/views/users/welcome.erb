@@ -1,4 +1,9 @@
-Welcome
+<h1 style="border-bottom:solid;">Welcome, <%="#{@signed_in_user.name}"%>!</h1>
+<br><br>
+<center><img src="images/heroes.png" class="img-responsive main-image"></center>
+<br>
+<h3 style="color:black;"><a href="/doctors">Providers</a></h3>
+<br>
 <form method="GET" action="/logout">
-<input type="submit" value="log out">
+<input style="float:right;" type="submit" value="Log Out">
 </form>

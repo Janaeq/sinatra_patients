@@ -1,5 +1,4 @@
-<h1>Welcome!</h1>
-<h4 style="border-bottom:solid;">Grey Sloan Memorial Hospital</h4>
+<h1 style="border-bottom:solid;">Grey Sloan Memorial Hospital</h1>
 <br>
 <h2 style="border-bottom:none">Which provider are you working with today?</h2>
 <ul><% @doctors.each do |doctor|%>
@@ -7,5 +6,8 @@
 <% end %></ul>
 
 <form method="GET" action="/doctors/new">
-    <input type="submit" value="New Provider" style="color:red;">
+    <input type="submit" value="New Provider" style="color:red; float:left;">
+</form>
+<form method="GET" action="/logout">
+    <input style="float:right;" type="submit" value="Log Out">
 </form>

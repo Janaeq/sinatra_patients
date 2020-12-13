@@ -1,3 +1,15 @@
-<h1 style="border-bottom:solid;">Create a New Provider</h1>
-<form method="POST" action="/doctors/:id">
+<!-- takes new info and saves it into the database -->
+<h1 style="border-bottom:solid;">Create a New Provider</h1><br>
+<form method="POST" action="/doctors">
+    <label>Name: </label>
+    <input type="text" name="name"><br><br>
+    <label>Specialty: </label>
+    <input type="text" name="specialty"><br><br>
+    <label>Clinic Days: </label>
+    <input type="text" name="clinic_days"><br><br>
+    <label>Clinic Location: </label>
+    <input type="text" name="clinic_location"><br><br>
+    <label>On Call: </label>
+    <input type="text" name="on_call_days"><br><br>
+    <input type="submit" value="Save">
 </form>

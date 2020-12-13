@@ -17,13 +17,19 @@ class DoctorsController < ApplicationController
         erb :'doctors/new'
     end
 
+    post '/doctors' do
+        #saves the new doctor to the database
+        #redirects to that new doctor's /doctors/:id page
+    end
+
     #READ
 
     get '/doctors/:id' do
         #shows a specific doctor and their info
         #can lead to link to update doctor info
         #can lead to link to view this doctor's patients
-        binding.pry
+        @doctor = Doctor.find_by_id(params[:id])
+        erb :'doctors/show'
     end
 
     #UPDATE

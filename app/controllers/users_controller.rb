@@ -16,34 +16,35 @@ class UsersController < ApplicationController
         # if user does not exist, send to error page?
         user = User.find_by(username: params[:username])
         if user && user.authenticate(params[:password]) # method from bcrypt has_secure_password - compares plain text pw to salted pw
-            # create the k/v pair in the session for the user to log in
             # user is not logged in until their user id is in the session hash with a value
-            session[:user_id] = user.id
+            session[:user_id] = user.id # create the k/v pair in the session for the user to log in
             
             redirect "/users/#{user.id}" #needs to be double quotes in order to interpolate the user id
-        else
+        else #if the user is not logged in redirect to the login page
             redirect '/login'
         end
     end
 
-    get '/users/:id' do
+    get '/users/:id' do #dynamic route specific to the user that is logged in
+        @signed_in_user = User.find_by(params[:id])
         erb :'users/welcome'
     end
 
     get "/enroll" do
+        #creates a new user
         erb :'users/enroll'
     end
 
     post "/users" do
+        #why create a class variable?
         @user = User.create(params)
-
+        #same as the post /login route
         session[:user_id] = @user.id
-
         redirect to "/users/#{@user.id}"
     end
 
     get '/logout' do
-        session.clear #clears the entire session hash
+        session.clear #clears the entire session hash, meaning the user is no longer logged in
         redirect to '/'
     end
 end
