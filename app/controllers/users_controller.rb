@@ -14,15 +14,24 @@ class UsersController < ApplicationController
             # user is not logged in until their user id is in the session hash with a value
             session[:user_id] = user.id
             
-            redirect to '/users/#{user.id}'
+            redirect "/users/#{user.id}" #needs to be double quotes in order to interpolate the user id
         else
-            redirect to '/login'
+            redirect '/login'
         end
     end
 
     get '/users/:id' do
-        "Hello, -user first name-!"
-        "Thank you message for covid with image"
-        "-link to /doctors-"
+        binding.pry
+        "Hello, -user first name-!
+        Thank you message for covid with image
+        -link to /doctors-"
+    end
+
+    get "/enroll" do
+        erb :'users/enroll'
+    end
+
+    post "/enroll" do
+        binding.pry
     end
 end

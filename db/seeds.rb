@@ -25,8 +25,8 @@ serena_vanderwoodsen = Patient.create(:name => "Serena Van Der Woodsen", :addres
 
 #USERS
 
-user1 = User.create(:username => "quinj2", :password => "laylamason123")
+user1 = User.create(:username => "quinj2", :password => "laylamason123", :name => "Janae Quinones")
 
-user2 = User.create(:username => "manca8", :password => "iluvmygf722")
+user2 = User.create(:username => "manca8", :password => "iluvmygf722", :name => "Andy Manchego")
 
-user3 = User.create(:username => "varpf1", :password => "mjq2608")
+user3 = User.create(:username => "varpf1", :password => "mjq2608", :name => "Freda Varpond")
