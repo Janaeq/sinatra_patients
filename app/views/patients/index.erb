@@ -1,5 +1,8 @@
 <h1 style="border-bottom:solid;">Dr. <%=@doctor.name%>'s Patients.</h1>
 <br>
 <ul><%@patients.each do |patient|%>
-    <a href="/patients/<%="#{patient.id}"%>"><li><%=patient.name%></li></a><br>
+    <a href="/patients/<%="#{patient.id}"%>" style="color:black; font-family:verdana;"><li><%=patient.name%></li></a><br>
 <%end%></ul>
+<form method="GET" action="/doctors/<%="#{@doctor.id}"%>/patients/new">
+    <input type="submit" value="New Patient" style="color:red; float:left;">
+</form>
