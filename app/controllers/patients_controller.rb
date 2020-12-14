@@ -19,7 +19,7 @@ class PatientsController < ApplicationController
         #saves the new patient to the database
         #redirects to that patient's /patients/:id page
         patient = Patient.create(name: params[:name], address: params[:address], insurance: params[:insurance], diagnosis: params[:diagnosis], medications: params[:medications], doctor_id: params[:doctor_id])
-        redirect to "/patients/#{patients.id}"
+        redirect to "/patients/#{patient.id}"
     end
     
     #READ
