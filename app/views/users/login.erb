@@ -3,8 +3,12 @@
 
 
 <h2><center>Log in to Health Information Systems</center></h2>
-<br>
+
 <center>
+<% if flash[:error] %>
+<h5 style="color:red;"><em><%= flash[:error] %></h6></em>
+<br>
+<%end%>
   <form method="POST" action="/login"> 
     <label>Username: </label>
     <input type="text" name="username" id="username">

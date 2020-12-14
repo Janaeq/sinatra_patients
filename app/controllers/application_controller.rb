@@ -7,6 +7,10 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
     enable :sessions #enables the session hash
     set :session_secret, "vzezu1u" #secret key that adds more security to the program
+    #register flash gem into program
+    #note that they can only be displayed on redirects
+    #will appear as a single GET request
+    register Sinatra::Flash 
   end
 
   get "/" do

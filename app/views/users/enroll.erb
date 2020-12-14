@@ -1,6 +1,9 @@
 <h1 style="border-bottom:solid;">Enroll a New User!</h1>
 <br>
-
+<% if flash[:error] %>
+<h5 style="color:red;"><em><%= flash[:error] %></h6></em>
+<br>
+<%end%>
 <form method="POST" action="/users">
     <label>Name:</label>
     <input type="string" name="name"><br><br>
