@@ -1,0 +1,20 @@
+<h1 style="border-bottom:solid;"><%=@user.name%></h1>
+<br>
+<h3>Edit Username and Password</h3><br>
+<form method="POST" action="/user/<%=@user.id%>">
+    <input type="hidden" name="_method" value="patch"> <!-- this uses Rack Override method to override the post request in the form tag with the patch request here -->
+    <label>Username: </label>
+    <input type="text" name="username" value="<%=@user.username%>"><br><br>
+    <label>Password: </label>
+    <input type="password" name="password" placeholder="New Password"><br><br>
+    <input type="submit" value="Save">
+</form>
+<br>
+<form method="POST" action="/user/<%=@user.id%>">
+    <input type ="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete Account" style="color:red;">
+</form>
+<br>
+<br>
+<br>
+<a href="/user/<%=@user.id%>" style="color:black; float:left;">Back</a>
