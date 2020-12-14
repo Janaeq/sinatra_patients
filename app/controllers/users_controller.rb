@@ -69,9 +69,13 @@ class UsersController < ApplicationController
       end
 
     patch "/user/:id" do
-        @user = User.find(params[:id])
-        @user.update(username: params[:username], password: params[:password])
-        redirect to "user/#{@user.id}"
+        user = User.find(params[:id])
+        if user.update(username: params[:username], password: params[:password])
+            redirect to "user/#{user.id}"
+        else
+            flash[:error] = user.errors.full_messages.to_sentence
+            redirect to "user/#{user.id}/edit"
+        end
     end
     
     #DELETE
