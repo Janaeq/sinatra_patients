@@ -11,14 +11,15 @@ class PatientsController < ApplicationController
     
     get "/doctors/:id/patients/new" do #IS THIS CONVENTIONNNNNNNN
         #creates a new patient 
-        #can we specify this route to create a patient for that specific doctor?
         @doctor_id = params[:id]
         erb :'patients/new'
     end
 
-    post '/doctors/:id/patients' do
+    post '/doctors/patients' do
         #saves the new patient to the database
         #redirects to that patient's /patients/:id page
+        patient = Patient.create(name: params[:name], address: params[:address], insurance: params[:insurance], diagnosis: params[:diagnosis], medications: params[:medications], doctor_id: params[:doctor_id])
+        redirect to "/patient/#{patients.id}"
     end
     
     #READ
