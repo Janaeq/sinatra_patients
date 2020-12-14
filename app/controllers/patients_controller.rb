@@ -49,7 +49,11 @@ class PatientsController < ApplicationController
 
     #DELETE
 
-    delete '/patients/:id' do
+    delete '/doctors/:doctor_id/patients/:id' do #is this convention?
         #deletes this patient
+        binding.pry
+        @patient = Patient.find(params[:id])
+        @patient.destroy
+        redirect to "/doctors"
     end
 end 

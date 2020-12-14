@@ -55,7 +55,10 @@ class DoctorsController < ApplicationController
     delete '/doctors/:id' do
         #deletes this doctor
         @doctor = Doctor.find(params[:id])
-        @doctor.destroy
+        @doctor.patients.each do |patient|
+            patient.destroy #deletes this doctor's patients
+        end
+        @doctor.destroy 
         redirect to "/doctors"
     end
 

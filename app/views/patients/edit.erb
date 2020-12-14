@@ -1,5 +1,6 @@
-<h1 style="border-bottom:solid;"><%=@patient.name%></h1><br>
-
+<h1 style="border-bottom:solid;"><%=@patient.name%></h1>
+<br>
+<h3>Edit Patient Information</h3><br>
 <form method="POST" action="/patients/<%=@patient.id%>">
     <input type="hidden" name="_method" value="patch"> <!-- this uses Rack Override method to override the post request in the form tag with the patch request here -->
     <label>Name: </label>
@@ -12,3 +13,12 @@
     <input type="text" name="medications" value="<%=@patient.medications%>"><br><br>
     <input type="submit" value="Save">
 </form>
+<br>
+<form method="POST" action="/doctors/<%=@patient.doctor_id%>/patients/<%=@patient.id%>">
+    <input type ="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete Patient" style="color:red;">
+</form>
+<br>
+<br>
+<br>
+<a href="/patients/<%=@patient.id%>" style="color:black; float:left;">Back</a>
