@@ -4,5 +4,9 @@
     <a href="/patients/<%="#{patient.id}"%>" style="color:black; font-family:verdana;"><li><%=patient.name%></li></a><br>
 <%end%></ul>
 <form method="GET" action="/doctors/<%="#{@doctor.id}"%>/patients/new">
-    <input type="submit" value="New Patient" style="color:red; float:left;">
+    <input type="submit" value="New Patient" style="color:red;">
 </form>
+<br>
+<br>
+<br>
+<a href="/doctors/<%=@doctor.id%>" style="color:black; float:left;">Back</a>

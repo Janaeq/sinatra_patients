@@ -15,4 +15,4 @@
 <h4>Diagnosis: <%=@patient.diagnosis%></h4>
 <h4>Medications: <%=@patient.medications%></h4>
 <br><br>
-<a href="/doctors" style="color:black; float:left;">Back to Doctor List</a>
+<a href="/doctors/<%=@patient.doctor_id%>/patients" style="color:black; float:left;">Back to Patient List</a>
