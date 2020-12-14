@@ -1,2 +1,18 @@
-This is a single patient
-<%=@patient.name%>
+<h1 style="border-bottom: solid;"><%=@patient.name%></h1>
+<a href="/patients/<%="#{@patient.id}/edit"%>" style="float:right; color:red;">Edit Patient</a>
+<br>
+<h2 style="border-bottom:none;">Patient Information</h2>
+<h4>Address: <%=@patient.address%></h4>
+<%if @patient.address == nil%>
+    <h4>Insurance: None</h4>
+<%else%>
+    <h4>Insurance: <%=@patient.insurance%></h4>
+<%end%>
+<br>
+<div style="border-bottom:solid; border-bottom-color:#ccc;">
+</div>
+<h2 style="border-bottom:none;">Clinical Information</h2>
+<h4>Diagnosis: <%=@patient.diagnosis%></h4>
+<h4>Medications: <%=@patient.medications%></h4>
+<br><br>
+<a href="/doctors" style="color:black; float:left;">Back to Doctor List</a>
