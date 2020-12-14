@@ -22,8 +22,6 @@ class DoctorsController < ApplicationController
         #redirects to that new doctor's /doctors/:id page
         doctor = Doctor.new(name: params[:name], specialty: params[:specialty], clinic_days: params[:clinic_days], clinic_location: params[:clinic_location], on_call_days: params[:on_call_days])
         if doctor.save
-            # doctor = Doctor.create(name: params[:name], specialty: params[:specialty], clinic_days: params[:clinic_days], clinic_location: params[:clinic_location], on_call_days: params[:on_call_days])
-            # binding.pry
             redirect to "/doctors/#{doctor.id}"
         else
             flash[:error] = doctor.errors.full_messages.to_sentence

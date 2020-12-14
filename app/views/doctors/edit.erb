@@ -1,6 +1,10 @@
 <h1 style="border-bottom:solid;"><%=@doctor.name%></h1>
 <br>
 <h3>Edit Provider Information</h3><br>
+<% if flash[:error] %>
+<h5 style="color:red;"><em><%= flash[:error] %></h6></em>
+<br>
+<%end%>
 <form method="POST" action="/doctors/<%=@doctor.id%>">
     <input type="hidden" name="_method" value="patch">
     <label>Name: </label>
