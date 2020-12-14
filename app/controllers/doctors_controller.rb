@@ -20,6 +20,8 @@ class DoctorsController < ApplicationController
     post '/doctors' do
         #saves the new doctor to the database
         #redirects to that new doctor's /doctors/:id page
+        doctor = Doctor.create(name: params[:name], specialty: params[:specialty], clinic_days: params[:clinic_days], clinic_location: params[:clinic_location], on_call_days: params[:on_call_days])
+        redirect to "/doctors/#{doctor.id}"
     end
 
     #READ
