@@ -8,7 +8,7 @@ Specs:
 - [x] Include at least one belongs_to relationship on another model (e.g. Post belongs_to User) - Patient belongs to a doctor
 - [x] Include user accounts with unique login attribute (username or email) - users have a username that is validated for uniqueness
 - [x] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying - CRUD is used in patient and doctor controllers
-- [ ] Ensure that users can't modify content created by other users - maybe change username/password?
+- [x] Ensure that users can't modify content created by other users - Add authorized_user method to ApplicationController to make sure that no one can edit/delete a users information
 - [x] Include user input validations - Validations in all models
 - [x] BONUS - not required - Display validation failures to user with error message (example form URL e.g. /posts/new) - Flash Error messages displayed when inputs are invalid
 - [ ] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
