@@ -18,7 +18,7 @@
     <input type="submit" value="Save">
 </form>
 <br>
-<form method="POST" action="/doctors/<%=@doctor.id%>">
+<form method="POST" action="/users/<%=@doctor.user_id%>/doctors/<%=@doctor.id%>">
     <input type ="hidden" name="_method" value="delete">
     <input type="submit" value="Delete Provider" style="color:red;">
 </form>

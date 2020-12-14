@@ -1,11 +1,10 @@
 <h1 style="border-bottom:solid;">Grey Sloan Memorial Hospital</h1>
 <br>
-<h2 style="border-bottom:none">Which provider are you working with today?</h2>
-<ul><% @doctors.each do |doctor|%>
+<h2 style="border-bottom:none">Choose a Provider</h2>
+<ul><% @user.doctors.each do |doctor|%>
     <li><a href="/doctors/<%=doctor.id%>" style="color:black; font-family:verdana;"><%= doctor.name %></a></li><br>
 <% end %></ul>
-
-<form method="GET" action="/doctors/new">
+<form method="GET" action="/user/<%=@user.id%>/doctors/new">
     <input type="submit" value="New Provider" style="color:red;">
 </form>
 <br><br>

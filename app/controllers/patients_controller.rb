@@ -22,7 +22,7 @@ class PatientsController < ApplicationController
         else
             flash[:error] = "You must log in to view this page"
             redirect to "/"
-        end
+        end 
     end
 
     post '/patients' do
