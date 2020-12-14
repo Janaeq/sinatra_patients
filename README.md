@@ -8,4 +8,4 @@ This application uses input validators to ensure that the proper information is 
 # Getting Started
 
 Fork and clone this repository. Then run
-```bundle instal
+```bundle instal```
