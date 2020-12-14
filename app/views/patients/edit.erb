@@ -1,4 +1,4 @@
-<h1 style="border-bottom:solid;"><%=@patient.name%></h1>
+<h1 style="border-bottom:solid;"><%=@patient.name%></h1><br>
 
 <form method="POST" action="/patients/<%=@patient.id%>">
     <input type="hidden" name="_method" value="patch"> <!-- this uses Rack Override method to override the post request in the form tag with the patch request here -->
@@ -10,5 +10,5 @@
     <input type="text" name="insurance" value="<%=@patient.insurance%>"><br><br>
     <label>Medications: </label>
     <input type="text" name="medications" value="<%=@patient.medications%>"><br><br>
-    <input type="submit">
+    <input type="submit" value="Save">
 </form>
