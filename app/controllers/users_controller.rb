@@ -45,6 +45,7 @@ class UsersController < ApplicationController
             session[:user_id] = user.id
             redirect to "/users/#{user.id}"
         else
+            binding.pry
             flash[:error] = user.errors.full_messages.to_sentence
             redirect to "/enroll"
         end
