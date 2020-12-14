@@ -1,12 +1,14 @@
 <h1><%=@doctor.name%></h1> 
 <img src="<%=@doctor.headshot%>" style="float:right;">
 <h2 style="border-bottom:solid;"><em><%=@doctor.specialty%></em></h2>
-<h2 style="border-bottom:none; float:right; color:red;"><a href="/doctors/<%="#{@doctor.id}"%>/patients">Patients</h2></a>
+<a href="/doctors/<%="#{@doctor.id}/edit"%>" style="float:right; color:red;">Edit Provider Information</a>
 <h2 style="border-bottom:none;">Clinic Information</h2>
 <h4>Clinic Location: <%=@doctor.clinic_location%></h4>
 <h4>Clinic Days: <%=@doctor.clinic_days%></h4>
 <br><br>
 <h2 style="border-bottom:none;">On-Call Information</h2>
 <h4><%=@doctor.on_call_days%></h4>
-<br><br><br>
+<br><br>
+<h2 style="border-bottom:none;"><a style="color:navy;" href="/doctors/<%="#{@doctor.id}"%>/patients">Patients</a> - <%=@doctor.patients.count%></h2>
+<br><br>
 <a href="/doctors" style="color:black; float:left;">Back</a>
