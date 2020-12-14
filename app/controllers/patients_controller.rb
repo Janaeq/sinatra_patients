@@ -15,11 +15,11 @@ class PatientsController < ApplicationController
         erb :'patients/new'
     end
 
-    post '/doctors/patients' do
+    post '/patients' do
         #saves the new patient to the database
         #redirects to that patient's /patients/:id page
         patient = Patient.create(name: params[:name], address: params[:address], insurance: params[:insurance], diagnosis: params[:diagnosis], medications: params[:medications], doctor_id: params[:doctor_id])
-        redirect to "/patient/#{patients.id}"
+        redirect to "/patients/#{patients.id}"
     end
     
     #READ
