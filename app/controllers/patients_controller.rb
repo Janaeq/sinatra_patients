@@ -67,9 +67,13 @@ class PatientsController < ApplicationController
 
     patch '/patients/:id' do
         #actually updates the info
-        @patient = Patient.find(params[:id])
-        @patient.update(name: params[:name], address: params[:address], insurance: params[:insurance], medications: params[:medications])
-        redirect to "patients/#{@patient.id}"
+        patient = Patient.find(params[:id])
+        if patient.update(name: params[:name], address: params[:address], insurance: params[:insurance], medications: params[:medications])
+            redirect to "patients/#{patient.id}"
+        else
+            flash[:error] = patient.errors.full_messages.to_sentence
+            redirect to "patients/#{patient.id}/edit"
+        end
     end
 
     #DELETE

@@ -1,6 +1,10 @@
 <h1 style="border-bottom:solid;"><%=@patient.name%></h1>
 <br>
 <h3>Edit Patient Information</h3><br>
+<% if flash[:error] %>
+<h5 style="color:red;"><em><%= flash[:error] %></h6></em>
+<br>
+<%end%>
 <form method="POST" action="/patients/<%=@patient.id%>">
     <input type="hidden" name="_method" value="patch"> <!-- this uses Rack Override method to override the post request in the form tag with the patch request here -->
     <label>Name: </label>
