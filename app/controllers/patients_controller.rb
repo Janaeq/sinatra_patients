@@ -1,5 +1,13 @@
 class PatientsController < ApplicationController
 
+    #Index
+
+    get "/doctors/:id/patients" do #is this convention? idk
+        @doctor = Doctor.find_by_id(params[:id])
+        @patients = @doctor.patients
+        erb :'patients/index'
+    end
+    
     #CREATE 
     
     get "/doctors/:id/patients/new" do #IS THIS CONVENTIONNNNNNNN
