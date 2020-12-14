@@ -1,4 +1,6 @@
-<h1 style="border-bottom:solid;"><%=@doctor.name%></h1><br>
+<h1 style="border-bottom:solid;"><%=@doctor.name%></h1>
+<br>
+<h3>Edit Provider Information</h3><br>
 <form method="POST" action="/doctors/<%=@doctor.id%>">
     <input type="hidden" name="_method" value="patch">
     <label>Name: </label>
@@ -11,3 +13,12 @@
     <input type="text" name="on_call_days" value="<%=@doctor.on_call_days%>"><br><br>
     <input type="submit" value="Save">
 </form>
+<br>
+<form method="POST" action="/doctors/<%=@doctor.id%>">
+    <input type ="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete Provider" style="color:red;">
+</form>
+<br>
+<br>
+<br>
+<a href="/doctors/<%"#{@doctor.id}"%>" style="color:black; float:left;">Back</a>

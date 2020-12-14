@@ -50,6 +50,6 @@ class PatientsController < ApplicationController
     #DELETE
 
     delete '/patients/:id' do
-        #deletes this doctor
+        #deletes this patient
     end
 end 
