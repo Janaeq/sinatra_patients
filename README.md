@@ -17,4 +17,4 @@ You can either enroll with the seeded user or create a new user by clicking on "
 
 
 ## Contributing
-Pull requests and bug reports can be sent to me at [My Profile](https://github.com/Janaeq/sinatra_patients). This is my first time creating anything like this, so collaboration is definitely welcome. All contributors and collaborators are expected to adhere to the code of conduct.
+Pull requests and bug reports can be sent to me at [My Profile](https://github.com/Janaeq/sinatra_patients). Collaboration is definitely welcomed. All contributors and collaborators are expected to adhere to the code of conduct.
