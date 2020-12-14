@@ -18,12 +18,12 @@ class DoctorsController < ApplicationController
     #CREATE
 
     get '/user/:id/doctors/new' do
-        if logged_in?
+        @user = User.find(params[:id])
+        if authorized_to_edit(@user)
             #creates a new doctor that belongs to the logged in user
-            @user_id = params[:id]
             erb :'doctors/new'
         else
-            flash[:error] = "You must log in to view this page"
+            flash[:error] = "Not authorized. Please try again."
             redirect to "/"
         end
     end
@@ -60,12 +60,12 @@ class DoctorsController < ApplicationController
     #UPDATE
 
     get "/doctors/:id/edit" do
-        if logged_in?
+        @doctor = Doctor.find(params[:id])
+        if authorized_to_edit(@doctor.user)
             #renders the form to update a specific doctor's info
-            @doctor = Doctor.find(params[:id])
             erb :'doctors/edit'
         else
-            flash[:error] = "You must log in to view this page"
+            flash[:error] = "Not authorized. Please try again."
             redirect to "/"
         end
     end
@@ -85,13 +85,13 @@ class DoctorsController < ApplicationController
 
     delete '/users/:user_id/doctors/:id' do
         #deletes this doctor
-        @user = User.find(params[:user_id])
-        @doctor = Doctor.find(params[:id])
-        @doctor.patients.each do |patient|
+        user = User.find(params[:user_id])
+        doctor = Doctor.find(params[:id])
+        doctor.patients.each do |patient|
             patient.destroy #deletes this doctor's patients
         end
-        @doctor.destroy 
-        redirect to "/user/#{@user.id}/doctors"
+        doctor.destroy 
+        redirect to "/user/#{user.id}/doctors"
     end
 
 end

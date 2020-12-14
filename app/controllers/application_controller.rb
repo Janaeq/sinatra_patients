@@ -27,6 +27,7 @@ class ApplicationController < Sinatra::Base
     end
 
     def authorized_to_edit(user)
+      # binding.pry
       user == current_user
     end
 

@@ -52,11 +52,11 @@ class UsersController < ApplicationController
     #READ
 
     get "/user/:id" do #dynamic route specific to the user that is logged in
-        if logged_in?
-            @user = User.find_by(id: params[:id])
+        @user = User.find_by(id: params[:id])
+        if authorized_to_edit(@user)
             erb :'users/welcome'
         else
-            flash[:error] = "You must log in to view this page"
+            flash[:error] = "Not authorized. Please try again."
             redirect to "/"
         end
     end
@@ -68,7 +68,7 @@ class UsersController < ApplicationController
         if authorized_to_edit(@user)
             erb :'users/edit'
         else
-            flash[:error] = "You must log in to view this page"
+            flash[:error] = "Not authorized. Please try again."
             redirect to "/"
         end
       end
