@@ -37,7 +37,7 @@ class UsersController < ApplicationController
 
     post "/users" do
         # create a class variable so that it works in your "/users/:id" route
-        @user = User.create(params)
+        @user = User.create(username: params[:username], password: params[:password], name: params[:name])
         #same as the post /login route to log in the new user
         session[:user_id] = @user.id
         redirect to "/users/#{@user.id}"
