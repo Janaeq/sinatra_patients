@@ -27,7 +27,6 @@ class UsersController < ApplicationController
 
     get "/users/:id" do #dynamic route specific to the user that is logged in
         @user = User.find_by(id: params[:id])
-        binding.pry
         erb :'users/welcome'
     end
 
