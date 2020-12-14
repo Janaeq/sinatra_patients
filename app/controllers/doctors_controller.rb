@@ -35,8 +35,8 @@ class DoctorsController < ApplicationController
         if doctor.save
             redirect to "/doctors/#{doctor.id}"
         else
-            flash[:error] = doctor.errors.full_messages.to_sentence
-            redirect to "/doctors/#{doctor.user_id}/patients/new"
+            flash[:error] = "#{doctor.errors.full_messages.to_sentence}"
+            redirect to "/user/#{doctor.user_id}/doctors/new"
         end
         
     end
