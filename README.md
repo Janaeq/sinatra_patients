@@ -10,4 +10,9 @@ This application uses input validators to ensure that the proper information is 
 Fork and clone this repository. Then run
 ```bundle install```.
 
-Once all the gems in the gemfile are installed, you can begin the server by running ```shotgun```
+Once all the gems in the gemfile are installed, you can begin the server by running ```shotgun``` and entering the Shotgun port in your browser.
+(This should be '127.0.0.1:9393' or, more commonly, 'localhost:9393')
+
+You can either enroll with the seeded user or create a new user by clicking on "Enroll a New User" on the bottom left.
+
+
