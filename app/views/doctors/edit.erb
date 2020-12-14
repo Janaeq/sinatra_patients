@@ -1,0 +1,13 @@
+<h1 style="border-bottom:solid;"><%=@doctor.name%></h1><br>
+<form method="POST" action="/doctors/<%=@doctor.id%>">
+    <input type="hidden" name="_method" value="patch">
+    <label>Name: </label>
+    <input type="text" name="name" value="<%=@doctor.name%>"><br><br>
+    <label>Clinic Days: </label>
+    <input type="text" name="clinic_days" value="<%=@doctor.clinic_days%>"><br><br>
+    <label>Clinic Location: </label>
+    <input type="text" name="clinic_location" value="<%=@doctor.clinic_location%>"><br><br>
+    <label>On Call: </label>
+    <input type="text" name="on_call_days" value="<%=@doctor.on_call_days%>"><br><br>
+    <input type="submit" value="Save">
+</form>

@@ -39,10 +39,15 @@ class DoctorsController < ApplicationController
 
     get '/doctors/:id/edit' do
         #renders the form to update a specific doctor's info
+        @doctor = Doctor.find(params[:id])
+        erb :'doctors/edit'
     end
 
-    patch 'doctors/:id' do
+    patch '/doctors/:id' do
         #actually updates the info
+        @doctor = Doctor.find(params[:id])
+        @doctor.update(name: params[:name], clinic_days: params[:clinic_days], clinic_location: params[:clinic_location], on_call_days: params[:on_call_days])
+        redirect to "doctors/#{@doctor.id}"
     end
 
     #DELETE
