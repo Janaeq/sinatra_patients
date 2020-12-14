@@ -6,7 +6,7 @@ yang = Doctor.create(:name => "Christina Yang", :specialty => "Cardiology", :cli
 
 shepherd = Doctor.create(:name => "Derek Shepherd", :specialty => "Neurology", :clinic_days => "Tuesday, Wednesday", :clinic_location => "Sidney Kimmel Center", :on_call_days => "Wednesday, Friday, Saturday")
 
-montgomery = Doctor.create(:name => "Addison Montgomery", :specialty => "OB/GYN", :clinic_days => "Wednesday, Thursday, Friday", :clinic_location => "Breast and Imaging Center", :on_call_days => "Sunday, Monday, Tuesday, Saturday")
+montgomery = Doctor.create(:name => "Addison Montgomery-Shepherd", :specialty => "OB/GYN", :clinic_days => "Wednesday, Thursday, Friday", :clinic_location => "Breast and Imaging Center", :on_call_days => "Sunday, Monday, Tuesday, Saturday")
 
 
 #PATIENTS
