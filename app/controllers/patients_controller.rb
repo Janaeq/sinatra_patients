@@ -3,16 +3,26 @@ class PatientsController < ApplicationController
     #Index
 
     get "/doctors/:id/patients" do #is this convention? idk
-        @doctor = Doctor.find_by_id(params[:id])
-        erb :'patients/index'
+        if logged_in?
+            @doctor = Doctor.find_by_id(params[:id])
+            erb :'patients/index'
+        else
+            flash[:error] = "You must log in to view this page"
+            redirect to "/"
+        end
     end
     
     #CREATE 
     
     get "/doctors/:id/patients/new" do #IS THIS CONVENTIONNNNNNNN
-        #creates a new patient 
-        @doctor_id = params[:id]
-        erb :'patients/new'
+        if logged_in?
+            #creates a new patient 
+            @doctor_id = params[:id]
+            erb :'patients/new'
+        else
+            flash[:error] = "You must log in to view this page"
+            redirect to "/"
+        end
     end
 
     post '/patients' do
@@ -30,19 +40,29 @@ class PatientsController < ApplicationController
     #READ
 
     get '/patients/:id' do
-        #shows a specific patient
-        #can lead to link to update patient info
-        @patient = Patient.find_by(id: params[:id])
-        erb :'patients/show'
+        if logged_in?
+            #shows a specific patient
+            #can lead to link to update patient info
+            @patient = Patient.find_by(id: params[:id])
+            erb :'patients/show'
+        else
+            flash[:error] = "You must log in to view this page"
+            redirect to "/"
+        end
     end
 
     #UPDATE
 
     get '/patients/:id/edit' do
-        #get the patient that you want to edit
-        #renders the form to update a specific patient's info
-        @patient = Patient.find(params[:id])
-        erb :'patients/edit'
+        if logged_in?
+            #get the patient that you want to edit
+            #renders the form to update a specific patient's info
+            @patient = Patient.find(params[:id])
+            erb :'patients/edit'
+        else
+            flash[:error] = "You must log in to view this page"
+            redirect to "/"
+        end
     end
 
     patch '/patients/:id' do

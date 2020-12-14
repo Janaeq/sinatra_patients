@@ -3,18 +3,28 @@ class DoctorsController < ApplicationController
     #Index
 
     get '/doctors' do
-        @doctors = Doctor.all
-        #index - Shows all doctors
-        #select a doctor to get more info
-        #can lead to link to add a new doctor
-        erb :'doctors/index'
+        if logged_in?
+            @doctors = Doctor.all
+            #index - Shows all doctors
+            #select a doctor to get more info
+            #can lead to link to add a new doctor
+            erb :'doctors/index'
+        else
+            flash[:error] = "You must log in to view this page"
+            redirect to "/"
+        end
     end
 
     #CREATE
 
     get '/doctors/new' do
-        #creates a new doctor
-        erb :'doctors/new'
+        if logged_in?
+            #creates a new doctor
+            erb :'doctors/new'
+        else
+            flash[:error] = "You must log in to view this page"
+            redirect to "/"
+        end
     end
 
     post '/doctors' do
@@ -33,20 +43,30 @@ class DoctorsController < ApplicationController
     #READ
 
     get '/doctors/:id' do
-        #shows a specific doctor and their info
-        #can lead to link to update doctor info
-        #can lead to link to view this doctor's patients
-        @doctor = Doctor.find_by_id(params[:id])
-        erb :'doctors/show'
+        if logged_in?
+            #shows a specific doctor and their info
+            #can lead to link to update doctor info
+            #can lead to link to view this doctor's patients
+            @doctor = Doctor.find_by_id(params[:id])
+            erb :'doctors/show'
+        else
+            flash[:error] = "You must log in to view this page"
+            redirect to "/"
+        end
     end
 
 
     #UPDATE
 
     get '/doctors/:id/edit' do
-        #renders the form to update a specific doctor's info
-        @doctor = Doctor.find(params[:id])
-        erb :'doctors/edit'
+        if logged_in?
+            #renders the form to update a specific doctor's info
+            @doctor = Doctor.find(params[:id])
+            erb :'doctors/edit'
+        else
+            flash[:error] = "You must log in to view this page"
+            redirect to "/"
+        end
     end
 
     patch '/doctors/:id' do
