@@ -65,7 +65,12 @@ class UsersController < ApplicationController
 
     get '/user/:id/edit' do #should not be able to edit other users info
         @user = User.find_by(id: params[:id])
-        erb :'users/edit'
+        if authorized_to_edit(@user)
+            erb :'users/edit'
+        else
+            flash[:error] = "You must log in to view this page"
+            redirect to "/"
+        end
       end
 
     patch "/user/:id" do
@@ -79,6 +84,7 @@ class UsersController < ApplicationController
     end
     
     #DELETE
+    
     delete '/user/:id' do
         @user = User.find(params[:id])
         session.clear
