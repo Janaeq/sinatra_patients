@@ -71,9 +71,13 @@ class DoctorsController < ApplicationController
 
     patch '/doctors/:id' do
         #actually updates the info
-        @doctor = Doctor.find(params[:id])
-        @doctor.update(name: params[:name], clinic_days: params[:clinic_days], clinic_location: params[:clinic_location], on_call_days: params[:on_call_days])
-        redirect to "doctors/#{@doctor.id}"
+        doctor = Doctor.find(params[:id])
+        if doctor.update(name: params[:name], clinic_days: params[:clinic_days], clinic_location: params[:clinic_location], on_call_days: params[:on_call_days])
+            redirect to "doctors/#{doctor.id}"
+        else
+            flash[:error] = doctor.errors.full_messages.to_sentence
+            redirect to "doctors/#{doctor.id}/edit"
+        end
     end
 
     #DELETE
