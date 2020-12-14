@@ -32,6 +32,12 @@ class DoctorsController < ApplicationController
         erb :'doctors/show'
     end
 
+    get "/doctors/:id/patients" do #is this convention? idk
+        @doctor = Doctor.find_by_id(params[:id])
+        @patients = @doctor.patients
+        erb :'patients/index'
+    end
+
     #UPDATE
 
     get '/doctors/:id/edit' do
