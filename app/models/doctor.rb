@@ -1,5 +1,7 @@
 class Doctor < ActiveRecord::Base
     has_many :patients
+    
+    belongs_to :user
 
     validates :name, :specialty, :clinic_days, :clinic_location, :on_call_days, presence: true
     validates :name, uniqueness: true

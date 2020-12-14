@@ -2,7 +2,7 @@ class PatientsController < ApplicationController
 
     #Index
 
-    get "/doctors/:id/patients" do #is this convention? idk
+    get "/doctors/:id/patients" do
         if logged_in?
             @doctor = Doctor.find_by_id(params[:id])
             erb :'patients/index'
@@ -14,7 +14,7 @@ class PatientsController < ApplicationController
     
     #CREATE 
     
-    get "/doctors/:id/patients/new" do #IS THIS CONVENTIONNNNNNNN
+    get "/doctors/:id/patients/new" do 
         if logged_in?
             #creates a new patient 
             @doctor_id = params[:id]

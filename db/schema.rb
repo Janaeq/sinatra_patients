@@ -11,29 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201213001253) do
-
-  create_table "doctors", force: :cascade do |t|
-    t.string "name"
-    t.string "specialty"
-    t.string "clinic_days"
-    t.string "clinic_location"
-    t.string "on_call_days"
-  end
-
-  create_table "patients", force: :cascade do |t|
-    t.string  "name"
-    t.string  "address"
-    t.string  "insurance"
-    t.string  "diagnosis"
-    t.text    "medications"
-    t.integer "doctor_id"
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.string "password_digest"
-    t.string "name"
-  end
+ActiveRecord::Schema.define(version: 0) do
 
 end
