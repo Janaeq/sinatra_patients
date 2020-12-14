@@ -40,7 +40,7 @@ class UsersController < ApplicationController
         # create a class variable so that it works in your "/users/:id" route
         user = User.new(username: params[:username], password: params[:password], name: params[:name])
         if user.save
-            # @user = User.create(username: params[:username], password: params[:password], name: params[:name])
+            # .save method saves the new instance to the db
             #same as the post /login route to log in the new user
             session[:user_id] = user.id
             redirect to "/users/#{user.id}"
