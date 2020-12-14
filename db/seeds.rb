@@ -1,13 +1,12 @@
 #DOCTORS
 
-pierce = Doctor.create(:name => "Maggie Pierce", :specialty => "Cardiology", :clinic_days => "Monday, Friday", :clinic_location => "David H. Koch Center", :on_call_days => "Tuesday, Thursday", :user_id => nil)
+pierce = Doctor.create(:name => "Maggie Pierce", :specialty => "Cardiology", :clinic_days => "Monday, Friday", :clinic_location => "David H. Koch Center", :on_call_days => "Tuesday, Thursday", :user_id => 2)
 
-yang = Doctor.create(:name => "Christina Yang", :specialty => "Cardiology", :clinic_days => "Wednesday, Thursday", :clinic_location => "Rockefeller Outpatient Pavillion", :on_call_days => "Sunday, Monday", :user_id => nil)
+yang = Doctor.create(:name => "Christina Yang", :specialty => "Cardiology", :clinic_days => "Wednesday, Thursday", :clinic_location => "Rockefeller Outpatient Pavillion", :on_call_days => "Sunday, Monday", :user_id => 3)
 
-shepherd = Doctor.create(:name => "Derek Shepherd", :specialty => "Neurology", :clinic_days => "Tuesday, Wednesday", :clinic_location => "Sidney Kimmel Center", :on_call_days => "Wednesday, Friday, Saturday", :user_id => nil)
+shepherd = Doctor.create(:name => "Derek Shepherd", :specialty => "Neurology", :clinic_days => "Tuesday, Wednesday", :clinic_location => "Sidney Kimmel Center", :on_call_days => "Wednesday, Friday, Saturday", :user_id => 2)
 
-montgomery = Doctor.create(:name => "Addison Montgomery-Shepherd", :specialty => "OB/GYN", :clinic_days => "Wednesday, Thursday, Friday", :clinic_location => "Breast and Imaging Center", :on_call_days => "Sunday, Monday, Tuesday, Saturday", :user_id => nil)
-
+montgomery = Doctor.create(:name => "Addison Montgomery-Shepherd", :specialty => "OB/GYN", :clinic_days => "Wednesday, Thursday, Friday", :clinic_location => "Breast and Imaging Center", :on_call_days => "Sunday, Monday, Tuesday, Saturday", :user_id => 1)
 
 #PATIENTS
 
@@ -25,4 +24,8 @@ serena_vanderwoodsen = Patient.create(:name => "Serena Van Der Woodsen", :addres
 
 #USERS
 
-user1 = User.create(:username => "user1", :password => "pw", :name => "Awesome User")
+user1 = User.create(:username => "user1", :password => "pw", :name => "User 1")
+
+user2 = User.create(:username => "user2", :password => "password", :name => "User 2")
+
+user3 = User.create(:username => "user3", :password => "private", :name => "User 3")
