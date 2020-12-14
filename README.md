@@ -8,4 +8,6 @@ This application uses input validators to ensure that the proper information is 
 # Getting Started
 
 Fork and clone this repository. Then run
-```bundle instal```
+```bundle install```.
+
+Once all the gems in the gemfile are installed, you can begin the server by running ```shotgun```
