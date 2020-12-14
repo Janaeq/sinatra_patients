@@ -3,8 +3,8 @@
 <br>
 <h2 style="border-bottom:none;">Patient Information</h2>
 <h4>Address: <%=@patient.address%></h4>
-<%if @patient.address == nil%>
-    <h4>Insurance: None</h4>
+<%if @patient.insurance == ""%>
+    <h4>Insurance: <em>This patient does not have insurance</em></h4>
 <%else%>
     <h4>Insurance: <%=@patient.insurance%></h4>
 <%end%>
@@ -13,6 +13,10 @@
 </div>
 <h2 style="border-bottom:none;">Clinical Information</h2>
 <h4>Diagnosis: <%=@patient.diagnosis%></h4>
-<h4>Medications: <%=@patient.medications%></h4>
+<% if @patient.medications == ""%>
+    <h4>Medications: <em>This patient is not taking any medication</em></h4>
+<%else%>
+    <h4>Medications: <%=@patient.medications%></h4>
+<%end%>
 <br><br>
 <a href="/doctors/<%=@patient.doctor_id%>/patients" style="color:black; float:left;">Back to Patient List</a>

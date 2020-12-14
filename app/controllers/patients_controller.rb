@@ -18,8 +18,13 @@ class PatientsController < ApplicationController
     post '/patients' do
         #saves the new patient to the database
         #redirects to that patient's /patients/:id page
-        patient = Patient.create(name: params[:name], address: params[:address], insurance: params[:insurance], diagnosis: params[:diagnosis], medications: params[:medications], doctor_id: params[:doctor_id])
-        redirect to "/patients/#{patient.id}"
+        patient = Patient.new(name: params[:name], address: params[:address], insurance: params[:insurance], diagnosis: params[:diagnosis], medications: params[:medications], doctor_id: params[:doctor_id])
+        if patient.save
+            redirect to "/patients/#{patient.id}"
+        else
+            flash[:error] = patient.errors.full_messages.to_sentence
+            redirect to "/doctors/#{patient.doctor_id}/patients/new"
+        end
     end
     
     #READ

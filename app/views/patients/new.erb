@@ -1,4 +1,8 @@
 <h1 style="border-bottom:solid;">Create a New Patient</h1><br>
+<% if flash[:error] %>
+<h5 style="color:red;"><em><%= flash[:error] %></h6></em>
+<br>
+<%end%>
 <form method="POST" action="/patients">
     <label>Name: </label>
     <input type="text" name="name"><br><br>

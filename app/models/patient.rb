@@ -1,5 +1,7 @@
 class Patient < ActiveRecord::Base
     belongs_to :doctor
 
-    validates :name, presence: true #flash error patient already exists
+    validates :name, :address, :diagnosis, presence: true
+    validates :name, uniqueness: true
+    validates :name, :address, :diagnosis, length: { minimum: 3 }
 end
