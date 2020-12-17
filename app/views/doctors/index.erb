@@ -1,9 +1,19 @@
 <h1 style="border-bottom:solid;">Grey Sloan Memorial Hospital</h1>
 <br>
 <h2 style="border-bottom:none">Choose a Provider</h2>
+<% if flash[:error] %>
+<h5 style="color:red;"><em><%= flash[:error] %></h6></em>
+<br>
+<%end%>
+<h3><em>Your Providers</em></h3>
 <ul><% @user.doctors.each do |doctor|%>
     <li><a href="/doctors/<%=doctor.id%>" style="color:black; font-family:verdana;"><%= doctor.name %></a></li><br>
 <% end %></ul>
+<br>
+<h3><em>All Providers</em></h3>
+<ul><%@doctors.each do |doctor|%>
+    <li><a href="/doctors/<%=doctor.id%>" style="color:black; font-family:verdana;"><%= doctor.name %></a></li><br>
+<%end%></ul>
 <form method="GET" action="/user/<%=@user.id%>/doctors/new">
     <input type="submit" value="New Provider" style="color:red;">
 </form>

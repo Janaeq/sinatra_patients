@@ -43,8 +43,13 @@ class PatientsController < ApplicationController
         if logged_in?
             #shows a specific patient
             #can lead to link to update patient info
-            @patient = Patient.find_by(id: params[:id])
-            erb :'patients/show'
+            if Patient.exists?(params[:id])
+                @patient = Patient.find_by(id: params[:id])
+                erb :'patients/show'
+            else
+                flash[:error] = "Error: Page does not exist. Please try again."
+                redirect to "/"
+            end
         else
             flash[:error] = "You must log in to view this page"
             redirect to "/"

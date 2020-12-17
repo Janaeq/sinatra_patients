@@ -5,7 +5,8 @@ class DoctorsController < ApplicationController
     get '/user/:id/doctors' do
         if logged_in?
             @user = User.find(params[:id])
-            #index - Shows doctors vthat belong to this user
+            @doctors = Doctor.all
+            #index - Shows doctors that belong to this user
             #select a doctor to get more info
             #can lead to link to add a new doctor
             erb :'doctors/index'
@@ -24,7 +25,7 @@ class DoctorsController < ApplicationController
             erb :'doctors/new'
         else
             flash[:error] = "Not authorized. Please try again."
-            redirect to "/"
+            redirect to "/user/#{@user.id}/doctors"
         end
     end
 
@@ -48,8 +49,13 @@ class DoctorsController < ApplicationController
             #shows a specific doctor and their info
             #can lead to link to update doctor info
             #can lead to link to view this doctor's patients
-            @doctor = Doctor.find(params[:id])
-            erb :'doctors/show'
+            if Doctor.exists?(params[:id])
+                @doctor = Doctor.find(params[:id])
+                erb :'doctors/show'
+            else
+                flash[:error] = "Error: Page does not exist. Please try again."
+                redirect to "/"
+            end
         else
             flash[:error] = "You must log in to view this page"
             redirect to "/"
